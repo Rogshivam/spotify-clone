@@ -1,0 +1,158 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.left {
+    width: 20vw;
+    padding: 10px;
+}
+.right {
+    width: 75vw;
+}
+
+.home ul li{
+    display: flex;
+    gap: 3px;
+    width: 14px;
+    list-style: none;
+    padding-top: 14px;
+    font-weight: bold;
+}
+.heading{
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    padding-top: 14px;
+    padding: 23px 14px;
+    font-weight: bold;
+    align-items: center;
+    font-size: 100%;
+
+}
+
+.heading img{
+    width: 30px;
+}
+.library{
+    min-height: 75vh;
+}
+.footer{
+    display: flex;
+    font-size: 10px;
+    color: grey;
+    gap: 13px;
+    padding: 4px 0;
+}
+.footer a{
+    color: grey;
+}
+.right{
+    margin: 16px 0;
+    position: relative;
+}
+.header{
+    display: flex;
+    justify-content: space-between; /* Distributes space between items */
+    background-color: rgb(34 34 34  );
+}
+.header > *{
+    padding: 20px;
+}
+.spotifyPlaylists{
+    padding: 16px;
+}
+.CardContainer{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.card{
+    width: 200px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #252525; 
+    position: relative;
+}
+.card > *{
+    padding-top: 10px;
+}
+.card img{
+    width: 100%;
+    object-fit: contain;
+}
+.green-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; /* Adjust the size of the circular box */
+    height: 30px; /* Adjust the size of the circular box */
+    border-radius: 50%; /* Creates a circle */
+    background-color: #27974f; /* Spotify green */
+    padding: 8px; /* Padding to ensure the SVG doesn't touch the edges */
+    position : absolute;
+    top: 168px;
+    right: 30px;
+    opacity: 0;
+    transition: all 1s ease-out;
+} 
+.green-circle svg {
+    width: 24px; /* Size of the SVG icon */
+    height: 24px; /* Size of the SVG icon */
+    color: black; /* Make the icon white */
+}
+.bottons > *{
+    margin: 0 12px;
+}
+.signubutton{
+    background-color: #252525;
+    color: white;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+.signubutton:hover {
+    font-size: 17px;
+    color: white;
+}
+.loginbutton {
+    background-color: white;
+    border-radius: 21px;
+    color: black;
+    padding: 10px;
+    width: 79px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+.loginbutton:hover {
+    font-weight: bold;
+    padding: 13px;
+
+
+}
+.Playbar{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(7, 50, 7);
+    width: 90%;
+    padding: 12px;
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.songlist ul{
+    padding: 0 12px;
+}
+.songlist ul li{
+    list-style-type: decimal;
+}
