@@ -211,6 +211,7 @@
 .songlist .info {
     font-size: 13px;
     width: 344px;
+    overflow: hidden;
 }
 
 .playnow {
@@ -225,13 +226,14 @@
 
 }
 .seekbar{
-    height: 2px;
+    height: 4px;
     width: 98%;
     background:  black;
     border-radius: 10px;
     position: absolute;
     bottom: 0;
     margin: 6px;
+    cursor: pointer;
 }
 .circle{
     width: 13px;
@@ -242,4 +244,15 @@
     bottom: 6px;
     left: 0%;
     transition: left 0.5s;
+}
+.songButtons img{
+    cursor: pointer; 
+}
+.songinfo, .songtime{
+    color: black;
+    padding: 0 12px;
+}
+.abovebar{
+    display: flex;
+    justify-content: space-between;
 }
