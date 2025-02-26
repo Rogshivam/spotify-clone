@@ -3,7 +3,7 @@ let currentSong = new Audio();
 let songs;
 function secondToMinutesSeconds(totalSeconds) {
     // Calculate minutes and seconds
-    const minutes = Math.floor((totalSeconds/60) %  3600);
+    const minutes = Math.floor((totalSeconds / 60) % 3600);
     const seconds = Math.floor((totalSeconds % 60));
 
     // Format minutes and seconds to always be two digits
@@ -13,7 +13,7 @@ function secondToMinutesSeconds(totalSeconds) {
     return `${formattedMinutes}:${formattedSeconds}`;
 }
 
-async function getSongs(){
+async function getSongs() {
     let a = await fetch("http://127.0.0.1:5500/songs/")
     let response = await a.text();
     let div = document.createElement("div")
@@ -22,17 +22,17 @@ async function getSongs(){
     let songs = []
     for (let index = 0; index < as.length; index++) {
         const element = as[index];
-        if(element.href.endsWith(".m4a")) {
+        if (element.href.endsWith(".m4a")) {
             songs.push(element.href.split("/songs/")[1])
         }
     }
     return songs
 
 }
-const playMusic = (track ,pause=false) =>{
+const playMusic = (track, pause = false) => {
     // let audio = new Audio("/songs/" + track)
     currentSong.src = "/songs/" + track
-    if(!pause){
+    if (!pause) {
         currentSong.play()
     }
     currentSong.play()
@@ -41,10 +41,10 @@ const playMusic = (track ,pause=false) =>{
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 
 }
-async function main(){
+async function main() {
     // Get the list of all the song
     songs = await getSongs()
-    playMusic(songs[0],true)
+    playMusic(songs[0], true)
     //show all the songs in the playlist
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
     for (const song of songs) {
@@ -59,61 +59,64 @@ async function main(){
               </div> </li>`;
     }
     //Attach an event listener(jo sune mtlab dkaye)
-    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e=>{
-        e.addEventListener("click",element=>{
-            console.log(e.querySelector(".info").firstElementChild.innerHTML)
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
             playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
         })
     })
     //add an event listener to play, next and previous
-    play.addEventListener("click", ()=>{
-        if(currentSong.paused){
+    play.addEventListener("click", () => {
+        if (currentSong.paused) {
             currentSong.play()
             play.src = "pause.svg"
         }
-        else{
+        else {
             currentSong.pause()
             play.src = "play.svg"
         }
     })
     // listen for timeupdate event
-    currentSong.addEventListener("timeupdate", ()=>{
+    currentSong.addEventListener("timeupdate", () => {
         console.log(currentSong.currentTime, currentSong.duration);
         document.querySelector(".songtime").innerHTML = `${secondToMinutesSeconds(currentSong.currentTime)}/${secondToMinutesSeconds(currentSong.duration)}`
-        document.querySelector(".circle").style.left = (currentSong.currentTime/ currentSong.duration) * 100 + "%";
-   })
-   //ADD an event listener to seekbar
-   document.querySelector(".seekbar").addEventListener("click", e=>{ 
-    let percent = (e.offsetX/e.target.getBoundingClientRect().width) * 100;
-    document.querySelector(".circle").style.left = percent + "%";
-    currentSong.currentTime = ((currentSong.duration)* percent)/ 100
-   })
-   //Add an event listener for hamburger
-   document.querySelector(".hamburger").addEventListener("click", ()=>
-document.querySelector(".left").style.left = "0"
-)}
-//Add an event listner for close button
-document.querySelector(".close").addEventListener("click",()=>{
-    document.querySelector(".left").style.left ="-120%"
-})
-//Add an event listener to previous
-previous.addEventListener("click", ()=>{
-    console.log("Previous clicked")
-    console.log(currentSong)
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
-    if((index-1) >= 0) {
-        playMusic(songs[index-1])
-    }
-})
+        document.querySelector(".circle").style.left = (currentSong.currentTime / currentSong.duration) * 100 + "%";
+    })
+    //ADD an event listener to seekbar
+    document.querySelector(".seekbar").addEventListener("click", e => {
+        let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+        document.querySelector(".circle").style.left = percent + "%";
+        currentSong.currentTime = ((currentSong.duration) * percent) / 100
+    })
+    //Add an event listener for hamburger
+    document.querySelector(".hamburger").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "0"
+    })
+    //Add an event listner for close button
+    document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "-120%"
+    })
+    //Add an event listener to previous
+    previous.addEventListener("click", () => {
+        console.log("Previous clicked")
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index - 1) >= 0) {
+            playMusic(songs[index - 1])
+        }
+    })
 
-//Add an event listener to next
-next.addEventListener("click", ()=>{
-    console.log("Next clicked")
-    let index = songs.indexOf(currentSong.src.split("/").slice(-1) [0])
-    if((index+1) < songs.length){
-        playMusic(songs[index+1])
-    }
-})
+    //Add an event listener to next
+    next.addEventListener("click", () => {
+        console.log("Next clicked")
+        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        if ((index + 1) < songs.length) {
+            playMusic(songs[index + 1])
+        }
+    })
+    //Add an event to volume
+    document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
+        console.log(e, e.target, e.target.value,"/100")
+        currentSong.volume = parseInt(e.target.value) / 100
+    })
 
- 
+}
 main()

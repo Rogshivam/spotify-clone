@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
+:root{
+    --a:0;
+}
 * {
     margin: 0;
     padding: 0;
@@ -85,14 +87,21 @@
 
 
 .cardContainer {
-    margin: 30px;
+    margin: 10px;
     display: flex;
-    gap: 10px;
+    gap: 5px;
     flex-wrap: wrap;
     overflow-y: auto;
+    /* overflow-x: s; */
     max-height: 70vh;
-
+    scrollbar-color: rgb(34 34 34);
 }
+/* .cardContainer .scrollbar none */
+.cardContainer::-webkit-scrollbar {
+    width: 8px;
+    right: px;
+    display: none;
+  }
 
 .card {
     width: 200px;
@@ -100,7 +109,14 @@
     border-radius: 5px;
     background-color: #252525;
     position: relative;
+    transform: all .9s;
     
+}
+.card:hover{
+    background-color: rgb(136, 135, 135);
+    cursor: pointer;
+    --a: 1;
+
 }
 
 .card > *{
@@ -129,7 +145,7 @@
     position: absolute;
     top: 168px;
     right: 30px;
-    opacity: 100%;
+    opacity: var(--a);
     transition: all 1s ease-out;
 }
 
@@ -271,13 +287,36 @@
     left: 0%;
     transition: left 0.5s;
 }
-.songButtons img{
-    cursor: pointer; 
+.timevol{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    overflow-wrap: anywhere;
+    /* margin: 5px; */
+
 }
-.songinfo, .songtime{
+.songbuttons img{
+    cursor: pointer;
+    color: black;
+    padding: 0 12px; 
+}
+.songinfo{
     color: black;
     padding: 0 12px;
     width: 250px;
+    
+}
+.songtime{
+    color: black;
+    padding: 0 12px;
+    width: 105px;
+}
+.volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    /* margin: 25px; */
     
 }
 .abovebar{
@@ -285,7 +324,7 @@
     justify-content: space-between;
     margin: 20px 0;
 }
-@media (max-width: 1500px) {
+@media (max-width: 1200px) {
     .left{
       position: absolute;
       left: -120%;
@@ -307,14 +346,22 @@
         top: 25px;
         width: 29px;
     }
+    .timevol{
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-direction: column;
+        gap: 13px;
+
+    }
     .right {
         width: 100vw;
     }
     .Playbar{
-        width: calc(100vw - 75px);
+        width: calc(100vw - 40px);
     }
     .seekbar{
-        width: calc(100vw - 120px);
+        width: calc(100vw - 55px);
     }
     .hamburger{
         display: block;
@@ -323,7 +370,7 @@
         display: hidden;
     }
     .card{
-        width: 90vw;
+        width: 44vw;
     }
     .cardContainer{
         margin: 0;
@@ -331,5 +378,40 @@
     }
     .close{
         display: block;
+    }
+    .green-circle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        /* Adjust the size of the circular box */
+        height: 35px;
+        /* Adjust the size of the circular box */
+        border-radius: 50%;
+        /* Creates a circle */
+        background-color: rgb(59, 228, 119);
+        /* Spotify green */
+        padding: 5px;
+        /* Padding to ensure the SVG doesn't touch the edges */
+        position: absolute;
+        top: 66vw;
+        right: 30px;
+        opacity: var(--a);
+        transition: all 0s ease-out;
+    }
+    
+    .green-circle svg {
+        width: 24px;
+        /* Size of the SVG icon */
+        height: 24px;
+        /* Size of the SVG icon */
+        color: black;
+        /* Make the icon white */
+    }
+    
+  }
+  @media (max-width: 1200px) {
+    .card{
+        width: 84vw;
     }
   }
