@@ -92,7 +92,7 @@
 .cardContainer {
     margin: 10px;
     display: flex;
-    gap: 5px;
+    gap: 70px;
     flex-wrap: wrap;
     overflow-y: auto;
     /* overflow-x: s; */
