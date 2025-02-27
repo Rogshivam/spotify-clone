@@ -81,7 +81,7 @@
 }
 
 .spotifyPlaylists {
-    padding: 16px;
+    padding: 10px;
 }
 
 .spotifyPlaylists h1 {
@@ -96,15 +96,15 @@
     flex-wrap: wrap;
     overflow-y: auto;
     /* overflow-x: s; */
-    max-height: 60vh;
-    padding-bottom: 44px;
+    max-height: 70vh;
+    padding-bottom: 100vw;
     scrollbar-color: rgb(34 34 34);
 }
 
 /* .cardContainer .scrollbar none */
 .cardContainer::-webkit-scrollbar {
     width: 8px;
-    right: px;
+    right: opx;
     display: none;
 }
 
@@ -361,19 +361,12 @@
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
-        gap: 13px;
+        gap: 13px; 
+
 
     }
 
-    .range {
-        width: -2px;
-        /* margin: 12px; */
-        
-        /* padding: 12px; */
-        max-width: 56px;
-        overflow-wrap: anywhere;
-
-    }
+   
 
     .right {
         width: 100vw;
@@ -381,10 +374,13 @@
 
     .Playbar {
         width: calc(100vw - 25px);
+        
+        
     }
 
     .seekbar {
-        width: calc(100vw - 55px);
+        width: calc(100vw - 45px);
+        
     }
 
     .hamburger {
@@ -402,6 +398,7 @@
     .cardContainer {
         margin: 0;
         justify-content: center;
+        max-height: 50vh;
     }
 
     .close {
@@ -421,7 +418,20 @@
         bottom: 88px;
         right: 17px;
         opacity: var(--a);
-        transition: all 1s ease-out;
+        transition: all 0s ease-out;
+    }
+    .songbuttons {
+        display: flex;
+        justify-content: center;
+        gap: 1px;
+    }
+    .songbuttons img {
+        cursor: pointer;
+        color: black;
+        padding: 0 6px;
+    }
+    .range{
+
     }
 
 }
