@@ -1,23 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root{
-    --a:0;
+:root {
+    --a: 0;
 }
+
 * {
     margin: 0;
     padding: 0;
 }
 
-.close{
+.close {
     display: none;
 }
+
 .left {
     width: 20vw;
     padding: 10px;
 }
 
 .right {
-    width:77vw;
+    width: 77vw;
 }
 
 .home ul li {
@@ -74,13 +76,14 @@
     border-radius: 10px;
 }
 
-.header > * {
+.header>* {
     padding: 20px;
 }
 
 .spotifyPlaylists {
     padding: 16px;
 }
+
 .spotifyPlaylists h1 {
     padding: 16px;
 }
@@ -93,15 +96,17 @@
     flex-wrap: wrap;
     overflow-y: auto;
     /* overflow-x: s; */
-    max-height: 70vh;
+    max-height: 60vh;
+    padding-bottom: 44px;
     scrollbar-color: rgb(34 34 34);
 }
+
 /* .cardContainer .scrollbar none */
 .cardContainer::-webkit-scrollbar {
     width: 8px;
     right: px;
     display: none;
-  }
+}
 
 .card {
     width: 200px;
@@ -110,16 +115,17 @@
     background-color: #252525;
     position: relative;
     transform: all .9s;
-    
+
 }
-.card:hover{
+
+.card:hover {
     background-color: rgb(136, 135, 135);
     cursor: pointer;
     --a: 1;
 
 }
 
-.card > *{
+.card>* {
     padding-top: 10px;
 }
 
@@ -128,37 +134,23 @@
     object-fit: contain;
 }
 
-.green-circle {
-    display: inline-flex;
+.play {
+    width: 28px;
+    height: 28px;
+    background-color: #1fdf64;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 35px;
-    /* Adjust the size of the circular box */
-    height: 35px;
-    /* Adjust the size of the circular box */
-    border-radius: 50%;
-    /* Creates a circle */
-    background-color: rgb(59, 228, 119);
-    /* Spotify green */
-    padding: 5px;
-    /* Padding to ensure the SVG doesn't touch the edges */
     position: absolute;
-    top: 168px;
-    right: 30px;
+    bottom: 88px;
+    right: 17px;
     opacity: var(--a);
     transition: all 1s ease-out;
 }
 
-.green-circle svg {
-    width: 24px;
-    /* Size of the SVG icon */
-    height: 24px;
-    /* Size of the SVG icon */
-    color: black;
-    /* Make the icon white */
-}
-
-.bottons > * {
+.bottons>* {
     margin: 0 12px;
 }
 
@@ -221,11 +213,13 @@
     overflow: auto;
     margin-bottom: 44px;
 }
-.hamburger{
+
+.hamburger {
     display: none;
     cursor: pointer;
 }
-.hamburgerCont{
+
+.hamburgerCont {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -267,17 +261,19 @@
     padding: 12px;
 
 }
-.seekbar{
+
+.seekbar {
     height: 4px;
     width: 97%;
-    background:  black;
+    background: black;
     border-radius: 10px;
     position: absolute;
     bottom: 8px;
     margin: 6px;
     cursor: pointer;
 }
-.circle{
+
+.circle {
     width: 13px;
     height: 13px;
     border-radius: 13px;
@@ -287,131 +283,151 @@
     left: 0%;
     transition: left 0.5s;
 }
-.timevol{
-    display:flex;
+
+.timevol {
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     overflow-wrap: anywhere;
-    /* margin: 5px; */
 
 }
-.songbuttons img{
+
+.songbuttons img {
     cursor: pointer;
     color: black;
-    padding: 0 12px; 
+    padding: 0 12px;
 }
-.songinfo{
+
+.songinfo {
     color: black;
     padding: 0 12px;
     width: 250px;
-    
+
 }
-.songtime{
+
+.songtime {
     color: black;
     padding: 0 12px;
     width: 105px;
 }
-.volume{
+
+.volume {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 12px;
+    cursor: pointer;
     /* margin: 25px; */
-    
+
 }
-.abovebar{
+.range input{
+    cursor: pointer;
+}
+
+.abovebar {
     display: flex;
     justify-content: space-between;
     margin: 20px 0;
 }
+
 @media (max-width: 1200px) {
-    .left{
-      position: absolute;
-      left: -120%;
-      transition: all .2s;
-      z-index: 1;
-      width: 373px;
-      background-color: black;
-      padding: 0;
+    .left {
+        position: absolute;
+        left: -120%;
+        transition: all .2s;
+        z-index: 1;
+        width: 373px;
+        background-color: black;
+        padding: 0;
     }
-    .songinfo{
+
+    .songinfo {
         width: auto;
     }
-    .info div{
+
+    .info div {
         word-break: break-all;
     }
+
     .left .close {
         position: absolute;
         right: 31px;
         top: 25px;
         width: 29px;
     }
-    .timevol{
-        display:flex;
+
+    .timevol {
+        display: flex;
         justify-content: space-evenly;
         align-items: center;
         flex-direction: column;
         gap: 13px;
 
     }
+
+    .range {
+        width: -2px;
+        /* margin: 12px; */
+        
+        /* padding: 12px; */
+        max-width: 56px;
+        overflow-wrap: anywhere;
+
+    }
+
     .right {
         width: 100vw;
     }
-    .Playbar{
-        width: calc(100vw - 40px);
+
+    .Playbar {
+        width: calc(100vw - 25px);
     }
-    .seekbar{
+
+    .seekbar {
         width: calc(100vw - 55px);
     }
-    .hamburger{
+
+    .hamburger {
         display: block;
     }
-    .scrollbar{
+
+    .scrollbar {
         display: hidden;
     }
-    .card{
+
+    .card {
         width: 44vw;
     }
-    .cardContainer{
+
+    .cardContainer {
         margin: 0;
         justify-content: center;
     }
-    .close{
+
+    .close {
         display: block;
     }
-    .green-circle {
-        display: inline-flex;
+
+    .play {
+        width: 28px;
+        height: 28px;
+        background-color: #1fdf64;
+        border-radius: 50%;
+        padding: 4px;
+        display: flex;
         align-items: center;
         justify-content: center;
-        width: 35px;
-        /* Adjust the size of the circular box */
-        height: 35px;
-        /* Adjust the size of the circular box */
-        border-radius: 50%;
-        /* Creates a circle */
-        background-color: rgb(59, 228, 119);
-        /* Spotify green */
-        padding: 5px;
-        /* Padding to ensure the SVG doesn't touch the edges */
         position: absolute;
-        top: 66vw;
-        right: 30px;
+        bottom: 88px;
+        right: 17px;
         opacity: var(--a);
-        transition: all 0s ease-out;
+        transition: all 1s ease-out;
     }
-    
-    .green-circle svg {
-        width: 24px;
-        /* Size of the SVG icon */
-        height: 24px;
-        /* Size of the SVG icon */
-        color: black;
-        /* Make the icon white */
-    }
-    
-  }
-  @media (max-width: 1200px) {
-    .card{
+
+}
+
+@media (max-width: 1200px) {
+    .card {
         width: 84vw;
     }
-  }
+}

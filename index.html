@@ -104,117 +104,36 @@
       </div>
       <div class="spotifyPlaylists">
         <h1>Spotify Playlists</h1>
-        <div class="cardContainer">
-          <div class="card ">
-            <div class="play">
-              <div class="green-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                  <path
-                    d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
-                    stroke="currentColor" stroke-width="1.5" fill="#000" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <img src="sanam.jpg" alt="Sanam teri kasam">
-              <h2>Sanam Teri Kasam (Original Motion Picture Soundtrack)</h2>
-              <p>Himesh Reshammiya,Sameer</p>
-              <p>Anjaan,Subrat Sinha</p>
+        <div class="cardContainer"></div>
+        <div class="Playbar">
+          <div class="seekbar">
+            <div class="circle">
             </div>
           </div>
-          <div class="card ">
-            <div class="play">
-              <div class="green-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                  <path
-                    d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
-                    stroke="currentColor" stroke-width="1.5" fill="#000" stroke-linejoin="round" />
-                </svg>
+          <div class="abovebar">
+            <div class="songinfo">
+            </div>
+            <div class="songbuttons">
+              <img width="35" id="previous" src="next.svg" alt="next">
+              <img width="35" id="play" src="play.svg" alt="play">
+              <img width="35" id="next" src="previous.svg" alt="previous">
+            </div>
+            <div class="timevol">
+              <div class="songtime ">
               </div>
-              <img src="asshiqui2.jpg" alt="Asahiqui2">
-              <h2>Aashiqui 2</h2>
-              <br>
-              <p>Mithoon,Ankit Tiwari,Jeet</p>
-              <p>Gannguli</p>
+              <div class="volume">
+                <img width="25px" src="volume.svg" alt="">
+                <div class="range invert">
+                  <input type="range" name="volume" id="">
+                </div>
+              </div>
             </div>
           </div>
-          <div class="card ">
-            <div class="play">
-              <div class="green-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                  <path
-                    d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
-                    stroke="currentColor" stroke-width="1.5" fill="#000" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <img src="shub.jpg" alt="Asahiqui2">
-              <h2>Punjabi hip hop</h2>
-              <br>
-              <p>Sidhu Moose Wala,AP Dhillon, Bohemia,Dr Zeus</p>
-            </div>
-          </div>
-          <div class="card ">
-            <div class="play">
-              <div class="green-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                  <path
-                    d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
-                    stroke="currentColor" stroke-width="1.5" fill="#000" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <img src="trend.jpg" alt="trend">
-              <h2>Trending</h2>
-              <br>
-              <p>Arijit Singh,Sachet Tandon,Jeet</p>
-              <p> Mohit Chauhan,....................</p>
-            </div>
-          </div>
-          <div class="card ">
-            <div class="play">
-              <div class="green-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
-                  <path
-                    d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z"
-                    stroke="currentColor" stroke-width="1.5" fill="#000" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <img src="rap.jpg" alt="RAP(Latest)">
-              <h2>RAP Music</h2>
-              <br>
-              <p>KR$NA, brodha v, muhfaad</p>
-              <p>DIVINE,Bella</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="Playbar">
-        <div class="seekbar">
-          <div class="circle">
 
-          </div>
+
         </div>
-        <div class="abovebar">
-          <div class="songinfo">
-          </div>
-          <div class="songbuttons">
-            <img width="35" id="previous" src="next.svg" alt="next">
-            <img width="35" id="play" src="play.svg" alt="play">
-            <img width="35" id="next" src="previous.svg" alt="previous">
-          </div>
-          <div class="timevol">
-            <div class="songtime ">
-            </div>
-            <div class="volume">
-              <img  width="25px" src="volume.svg" alt="">
-              <div class="range invert">
-                <input type="range" name="volume" id="">
-              </div>
-            </div>
-          </div>                    
-        </div>
-        </div>
-      </div>
     </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
