@@ -74,7 +74,7 @@ async function displayAlbums() {
     let cardContainer = document.querySelector(".cardContainer")
     let array = Array.from(anchors)
     // console.log(array[6].getAttribute('href'))
-    for (let index = 4; index < array.length; index++) {
+    for (let index = 0; index < array.length; index++) {
         const e = array[index].getAttribute('href'); 
         if (e.includes("/songs",0) ) {
             
