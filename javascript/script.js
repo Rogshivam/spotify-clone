@@ -41,7 +41,7 @@ async function getSongs(folder) {
               </div>
               <div class ="playnow">
                 <span>Play Now</span>
-                <img class="invert" src="play.svg" alt="">
+                <img class="invert" src="images/play.svg" alt="">
               </div> </li>`;
     }
     //Attach an event listener(jo sune mtlab dkaye)
@@ -73,10 +73,13 @@ async function displayAlbums() {
     let anchors = div.getElementsByTagName("a")
     let cardContainer = document.querySelector(".cardContainer")
     let array = Array.from(anchors)
-    for (let index = 0; index < array.length; index++) {
-        const e = array[index]; 
-        if (e.href.includes("/songs") && !e.href.includes(".htaccess")) {
-            let folder = e.href.split("/").slice(-2)[0]
+    // console.log(array[6].getAttribute('href'))
+    for (let index = 4; index < array.length; index++) {
+        const e = array[index].getAttribute('href'); 
+        if (e.includes("/songs",0) ) {
+            
+            let folder = e.split("/").slice(-2)[1]
+            // console.log(folder)
             // Get the metadata of the folder
             let a = await fetch(`/songs/${folder}/info.json`)
             let response = await a.json(); 
