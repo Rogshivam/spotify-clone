@@ -1,4 +1,14 @@
 {
-    "title": "POP Music",
-    "description": "Latest Songs for you"
+  "title": "POP Music",
+  "description": "Latest Songs for you",
+  "songs": [
+    "Afterhours.m4a",
+    "Born to Shine.m4a",
+    "Case.m4a",
+    "GOAT.m4a",
+    "Jee Ni Lagda.m4a",
+    "Khayaal.m4a",
+    "Lemonade.m4a",
+    "Sahiba (feat Simiran Kaur Dhadli).m4a"
+  ]
 }

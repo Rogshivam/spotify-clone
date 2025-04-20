@@ -1,0 +1,42 @@
+[
+    {
+        "folder": "cs",
+        "title": "Romantic",
+        "description": "Songs for you"
+    },
+    {
+        "folder": "NFAK",
+        "title": " Nusrat Fateh Ali Khan",
+        "description": "the King of Kings of Qawwali"
+    },
+    {
+        "folder": "old",
+        "title": "Old is gold",
+        "description": "alloutretro, evergreen, goldenera, 60s, 70s, 80s hits,"
+    },
+    {
+        "folder": "partysong",
+        "title": "Party song",
+        "description": "Best party Songs ,uplift mood"
+    },
+    {
+        "folder": "pop",
+        "title": "POP Music",
+        "description": "Latest Songs for you"
+    },
+    {
+        "folder": "punjabi",
+        "title": "Punjabi",
+        "description": "latest Punjabi Songs"
+    },
+    {
+        "folder": "Rap",
+        "title": "Latest RAP Music",
+        "description": "RAP,hiphop,dhh"
+    },
+    {
+        "folder": "sanam",
+        "title": "Sanam Songs",
+        "description": "Songs for you"
+    }
+]

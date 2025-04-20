@@ -1,4 +1,13 @@
 {
-    "title":"Punjabi",
-    "description": "latest Punjabi Songs"
+  "title": "Punjabi",
+  "description": "latest Punjabi Songs",
+  "songs": [
+    "Afterhours.m4a",
+    "Born to Shine.m4a",
+    "Case.m4a",
+    "Cold Hours.m4a",
+    "GOAT.m4a",
+    "Jee Ni Lagda.m4a",
+    "Sahiba (feat Simiran Kaur Dhadli).m4a"
+  ]
 }

@@ -1,0 +1,24 @@
+{
+  "name": "spotify_clone",
+  "version": "1.0.0",
+  "description": "so, basically this is a mini spotify clone in which you can store and retrieve song/music .You can call is mini web player and is musch snapy(fast) . \r and it is simply made",
+  "homepage": "https://github.com/Rogshivam/spotify#readme",
+  "bugs": {
+    "url": "https://github.com/Rogshivam/spotify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rogshivam/spotify.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js",
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
