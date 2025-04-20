@@ -1,4 +1,3 @@
-console.log('Lets write JavaScript');
 let currentSong = new Audio();
 let songs;
 let currFolder;
@@ -25,55 +24,55 @@ async function getSongs(folder) {
     let as = div.getElementsByTagName("a")
     songs = []
     for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".m4a")) {
-            songs.push(element.href.split(`/${folder}/`)[1])
+        const element = as[index].getAttribute('href');
+        if (element.endsWith(".m4a")) {
+            songs.push(element);
         }
     }
     //show all the songs in the playlist
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0]
     songUL.innerHTML = ""
     for (const song of songs) {
-        songUL.innerHTML = songUL.innerHTML + `<li><img class="invert" width="34"  src="public/images/music.svg" alt="">
-              <div class="info">
-                <div> ${song.replaceAll("%20", " ")} </div>
-                <div>shivam</div>
-              </div>
-              <div class ="playnow">
-                <span>Play Now</span>
-                <img class="invert" src="public/images/play.svg" alt="">
-              </div> </li>`;
+        // console.log(song.split('/').slice(4));
+        
+        songUL.innerHTML = songUL.innerHTML + `<li><img class="invert" width="34"  src="./public/images/music.svg" alt="">
+        <div class="info">
+        <div> ${song.split('/').slice(4)[0  ].replaceAll("%20", " ")} </div>
+        </div>
+        <div class ="playnow">
+        <span>Play Now</span>
+        <img class="invert" src="./public/images/play.svg" alt="">
+        </div> </li>`;
+        // console.log(song)
     }
     //Attach an event listener(jo sune mtlab dkaye)
     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
         e.addEventListener("click", element => {
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+            playMusic(`/${currFolder.split('/').slice(1).join('/')}/${e.querySelector(".info").firstElementChild.innerHTML.trim()}`)
         })
     })
     return songs
 
 }
 const playMusic = (track, pause = false) => {
-    // let audio = new Audio("/`public/songs/" + track)
-    currentSong.src = `/${currFolder}/` + track
+    currentSong.src =  track
     if (!pause) {
         currentSong.play()
-        play.src = "public/images/pause.svg"
+        play.src = "./public/images/pause.svg"
     }
-    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    
+    document.querySelector(".songinfo").innerHTML = decodeURI(track.split('/').slice(4)[0])
     document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 
 }
 async function displayAlbums() {
-    console.log("displaying albums")
-    let a = await fetch(`/public/songs/`)
+    let a = await fetch(`./public/songs/`)
     let response = await a.text();
     let div = document.createElement("div")
     div.innerHTML = response;
     let anchors = div.getElementsByTagName("a")
     let cardContainer = document.querySelector(".cardContainer")
     let array = Array.from(anchors)
-    console.log(array)
     for (let index = 4; index < array.length; index++) {
         const e = array[index].getAttribute('href');
         if (e.includes("/songs", 0)) {
@@ -81,7 +80,7 @@ async function displayAlbums() {
             let folder = e.split("/").slice(-2)[1]
             // console.log(folder)
             // Get the metadata of the folder
-            let a = await fetch(`/public/songs/${folder}/info.json`)
+            let a = await fetch(`./public/songs/${folder}/info.json`)
             let response = await a.json();
             cardContainer.innerHTML = cardContainer.innerHTML + ` <div data-folder="${folder}" class="card">
             <div class="play">
@@ -92,7 +91,7 @@ async function displayAlbums() {
                 </svg>
             </div>
 
-            <img src="/public/songs/${folder}/cover.jpg" alt="">
+            <img src="/./public/songs/${folder}/cover.jpg" alt="">
             <h2>${response.title}</h2>
             <p>${response.description}</p>
         </div>`
@@ -102,9 +101,8 @@ async function displayAlbums() {
     // Load the playlist whenever card is clicked
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            console.log("Fetching Songs")
-            songs = await getSongs(`public/songs/${item.currentTarget.dataset.folder}`)
-            playMusic(songs[0])
+            songs = await getSongs(`./public/songs/${item.currentTarget.dataset.folder}`)
+            playMusic(songs[0], true)
 
         })
     })
@@ -113,7 +111,7 @@ async function displayAlbums() {
 
 async function main() {
     // Get the list of all the song
-    songs = await getSongs("public/songs/cs")
+    songs = await getSongs("./public/songs/cs")
     playMusic(songs[0], true)
     //display all the album on the songs
     displayAlbums()
@@ -122,11 +120,11 @@ async function main() {
     play.addEventListener("click", () => {
         if (currentSong.paused) {
             currentSong.play()
-            play.src = "public/images/pause.svg"
+            play.src = "./public/images/pause.svg"
         }
         else {
             currentSong.pause()
-            play.src = "public/images/play.svg"
+            play.src = "./public/images/play.svg"
         }
     })
     // listen for timeupdate event
@@ -151,18 +149,22 @@ async function main() {
     //Add an event listener to previous
     previous.addEventListener("click", () => {
         currentSong.pause()
-        console.log("Previous clicked")
-        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        console.log("Previous clicked: Index of current song: ", currentSong.src.split("/").slice(3),songs.indexOf('/'+currentSong.src.split("/").slice(7).join('/')))
+        let index = songs.indexOf('/'+currentSong.src.split("/").slice(3).join('/'))
         if ((index - 1) >= 0) {
+            console.log(songs[index-1]);
             playMusic(songs[index - 1])
         }
     })
-
+    
     //Add an event listener to next
     next.addEventListener("click", () => {
         currentSong.pause()
-        let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+        console.log("Forward clicked: Index of current song: ",  songs.indexOf('/'+currentSong.src.split("/").slice(7).join('/')))
+        let index = songs.indexOf('/'+currentSong.src.split("/").slice(3).join('/'))
         if ((index + 1) < songs.length) {
+            console.log(songs[index+1]);
+            
             playMusic(songs[index + 1])
         }
     })
@@ -174,7 +176,7 @@ async function main() {
     // Load the playlist whenever card is clicked
     Array.from(document.getElementsByClassName("card")).forEach(e => {
         e.addEventListener("click", async item => {
-            songs = await getSongs(`public/songs/${item.currentTarget.dataset.folder}`)
+            songs = await getSongs(`./public/songs/${item.currentTarget.dataset.folder}`)
             playMusic(songs[0])
 
         })
