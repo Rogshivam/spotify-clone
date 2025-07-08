@@ -32,4 +32,6 @@ app.get('/api/albums', (req, res) => {
     });
 });
 
-app.listen(3000, ()=>console.log('Server Started!'))
+// ✅ Dynamic port (works locally and on Render)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
